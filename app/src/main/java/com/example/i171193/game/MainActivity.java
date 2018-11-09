@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     protected List<Missile> listMissile;
     protected List<Bloc> listBloc;
     private int temps;
-    protected int score = 0;
+    protected static int score = 0;
     protected int timeBloc;
     protected int compteurTimeBloc;
 
@@ -96,8 +96,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(150, 150);
         avion.setLayoutParams(params);
         //Rotation de l'avion pour avoir le né vers le haut
-        avion.setRotation(90);
-        //On récupère la taille de l'écran
+        avion.setRotation(90);        //On récupère la taille de l'écran
         metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
         largeurEcran = metrics.widthPixels;
@@ -108,6 +107,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         //Ajouter l'image a la fentre principale
         fenetrePrincipal.addView(avion);
         unGestureDetector = new GestureDetectorCompat(this, this);
+        score = 0;
     }
 
     @Override
@@ -155,11 +155,10 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
 
 
     private void gameOver(Bloc unBloc) {
-        if (unBloc.getImageBloc().getY() >= this.hauteurEcran){
+        if (unBloc.getImageBloc().getY() > this.hauteurEcran){
             Intent intent = new Intent(this, GameOver.class);
             startActivity(intent);
-            this.listBloc.clear();
-            this.listMissile.clear();
+            timerMissile.cancel();
         }
     }
 }

@@ -9,7 +9,7 @@
     android:paddingLeft="0dp"
     android:paddingTop="0dp"
     tools:context=".MainActivity"
-    android:background="@drawable/fond">
+    android:background="@color/fond">
 
 
 
