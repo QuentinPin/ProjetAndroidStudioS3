@@ -1,16 +1,15 @@
 package com.example.i171193.game;
 
-import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 public class Missile {
 
-    private MainActivity context;
+    private Game context;
     private float X;
     private ImageView imageMissile;
 
-    public Missile(MainActivity pContexte, float pX, ImageView pImageMissile) {
+    public Missile(Game pContexte, float pX, ImageView pImageMissile) {
         this.context = pContexte;
         this.X = pX;
         imageMissile = pImageMissile;
@@ -18,7 +17,7 @@ public class Missile {
         //Redimentionnement de l'image
         ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(25, 50);
         imageMissile.setLayoutParams(params);
-        imageMissile.setX(pX + 60); //Missile par au centre de l'avion
+        imageMissile.setX(pX + 40); //Missile par au centre de l'avion
         imageMissile.setY(context.hauteurEcran - 150); //Missile par devant l'avion
         context.fenetrePrincipal.addView(imageMissile);
     }
@@ -28,7 +27,8 @@ public class Missile {
         if (imageMissile.getY() < 0) {//Si le missille sort de l'écran
             context.listMissile.remove(this);
             context.fenetrePrincipal.removeView(imageMissile);
-            context.score -= 1;
+            context.score -= 5;
+            context.affScore.setText("Score = " + context.score);
         }
         for (int i = 0; i < context.listBloc.size(); i++) {
             if (context.listBloc.get(i).getImageBloc().getX() <= imageMissile.getX() && (context.listBloc.get(i).getImageBloc().getX() + 150) >= imageMissile.getX()) {
@@ -38,6 +38,7 @@ public class Missile {
                     context.listBloc.remove(context.listBloc.get(i)); //On enlève le bloc de la liste
                     context.listMissile.remove(this); //On enlève les missile de la liste e missille
                     context.score += 10;
+                    context.affScore.setText("Score = " + context.score);
                 }
             }
         }

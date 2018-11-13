@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="350dp"
-        android:layout_height="187dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -42,11 +42,21 @@
             android:textSize="18sp" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/regle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="@color/button"
+            android:text="Rêgle"
+            android:textColor="@android:color/background_light"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/information"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/button"
-            android:text="Button"
+            android:text="Information"
             android:textColor="@android:color/background_light"
             android:textSize="18sp" />
     </LinearLayout>

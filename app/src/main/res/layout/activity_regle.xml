@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Regle">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Rêgle du jeu"
+            android:textColor="@color/colorAccent"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Les rêgle du jeu sont très simple. Le but est que les astéroïde n'atteigne pas le bah de votre écran. Pour cela c'est très simple, il vous suffit de les détruir à l'aide de vos missile. Comment ? Pour lancer les misssile taper une fois sur l'écran, alors un missile partira de votre fusée. Tirer c'est bien mais comment visé ? Une fois de plus c'est très simple. Il vous suffit de pacher votre appareille du coté dont vous souhaiter voire votre avion ce diriger. Voila vous savez tous alors maintenant a vous de jouer !!" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dernière précision avant que tu aille te jeter sur le jeu ! La fasson dont tu joue va agir sur les point que tu gagnera. Les missile touchant leur cible te rapporte 10 points, dans le cas contraire tu en pert 5. Alors soit précis !" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

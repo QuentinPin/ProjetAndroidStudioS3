@@ -20,12 +20,26 @@ public class GameOver extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_over);
-        this.getMeilleurScore();
+        this.affiche();
+    }
+
+    public void rejouer(){
+        Intent intent = new Intent(this, Game.class);
+        startActivity(intent);
+    }
+
+    public void menu(){
+        Intent intent = new Intent(this, Menu.class);
+        startActivity(intent);
+    }
+
+    public void affiche(){
+
         scoreJoueur = (TextView) findViewById(R.id.affScore);
-        scoreJoueur.setText("Score : " + MainActivity.score);
+        scoreJoueur.setText("Score : " + Game.score);
         meilleurScore = (TextView) findViewById(R.id.meilleurScore);
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        int bestScore = preferences.getInt("MeilleurScore",0);
+        String bestScore = preferences.getString("MeilleurScore","");
         meilleurScore.setText("Meilleur score : " + bestScore);
         rejouer = (Button) findViewById(R.id.rejouer);
         rejouer.setOnClickListener(new View.OnClickListener() {
@@ -41,24 +55,5 @@ public class GameOver extends AppCompatActivity {
                 menu();
             }
         });
-    }
-
-    public void rejouer(){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
-
-    public void menu(){
-        Intent intent = new Intent(this, Menu.class);
-        startActivity(intent);
-    }
-
-    public void getMeilleurScore(){
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        int bestScore = preferences.getInt("MeilleurScore",0);
-        if(bestScore < MainActivity.score){
-            SharedPreferences.Editor editor = preferences.edit();
-            editor.putInt("MeilleurScore",MainActivity.score);
-        }
     }
 }

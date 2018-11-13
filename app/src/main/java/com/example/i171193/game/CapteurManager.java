@@ -9,15 +9,13 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 
-import com.example.i171193.game.MainActivity;
-
 public class CapteurManager implements SensorEventListener {
 
-    private MainActivity context;
+    private Game context;
     private SensorManager unSensorManager;
     private Sensor accelerometre;
 
-    public CapteurManager(MainActivity pContext) {
+    public CapteurManager(Game pContext) {
         this.context = pContext;
         unSensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
         //Vérification si l'appareille possède l'accéleromettre

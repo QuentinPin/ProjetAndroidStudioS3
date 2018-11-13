@@ -1,17 +1,14 @@
 package com.example.i171193.game;
 
-import android.content.Intent;
-import android.util.Log;
-import android.view.Menu;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 public class Bloc {
 
-    private MainActivity context;
+    private Game context;
     private ImageView imageBloc;
 
-    public Bloc(MainActivity pContexte){
+    public Bloc(Game pContexte){
         this.context = pContexte;
         this.imageBloc = new ImageView(context);
         this.genereBloc();

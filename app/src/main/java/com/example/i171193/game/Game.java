@@ -1,6 +1,8 @@
 package com.example.i171193.game;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,13 +13,14 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class MainActivity extends AppCompatActivity implements GestureDetector.OnGestureListener {
+public class Game extends AppCompatActivity implements GestureDetector.OnGestureListener {
 
     private CapteurManager unCapteurManager;
     protected RelativeLayout fenetrePrincipal;
@@ -34,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     protected static int score = 0;
     protected int timeBloc;
     protected int compteurTimeBloc;
+    public static TextView affScore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         listMissile = new ArrayList<Missile>();
         listBloc = new ArrayList<Bloc>();
         timerMissile = new Timer();
-        timeBloc = 60;
+        timeBloc = 200;
         compteurTimeBloc = 1;
         timerTask = new TimerTask() {
             @Override
@@ -93,10 +97,9 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         avion = new ImageView(this);
         avion.setBackgroundResource(R.drawable.avion);
         //Redimentionnement de l'image
-        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(150, 150);
+        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(100, 150);
         avion.setLayoutParams(params);
         //Rotation de l'avion pour avoir le né vers le haut
-        avion.setRotation(90);        //On récupère la taille de l'écran
         metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
         largeurEcran = metrics.widthPixels;
@@ -108,6 +111,8 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         fenetrePrincipal.addView(avion);
         unGestureDetector = new GestureDetectorCompat(this, this);
         score = 0;
+        affScore = (TextView) findViewById(R.id.affScore);
+        affScore.setText("Score = 0");
     }
 
     @Override
@@ -160,5 +165,17 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
             startActivity(intent);
             timerMissile.cancel();
         }
+    }
+
+    @Override
+    protected void onStop(){
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = preferences.edit();
+        String bestScore = preferences.getString("MeilleurScore","");
+        if( bestScore.equalsIgnoreCase("" )|| Integer.parseInt(bestScore) < Game.score ){
+            editor.putString("MeilleurScore", "" + Game.score);
+        }
+        editor.apply();
+        super.onStop();
     }
 }
