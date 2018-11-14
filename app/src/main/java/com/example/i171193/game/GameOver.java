@@ -56,4 +56,9 @@ public class GameOver extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        //bloquage du bouton retour
+    }
 }

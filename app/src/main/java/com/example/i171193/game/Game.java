@@ -38,15 +38,17 @@ public class Game extends AppCompatActivity implements GestureDetector.OnGesture
     protected int timeBloc;
     protected int compteurTimeBloc;
     public static TextView affScore;
+    private MusicManager unMusicManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        unMusicManager = new MusicManager(this);
         listMissile = new ArrayList<Missile>();
         listBloc = new ArrayList<Bloc>();
         timerMissile = new Timer();
-        timeBloc = 200;
+        timeBloc = 120;
         compteurTimeBloc = 1;
         timerTask = new TimerTask() {
             @Override
@@ -135,6 +137,7 @@ public class Game extends AppCompatActivity implements GestureDetector.OnGesture
     public boolean onSingleTapUp(MotionEvent e) {
         Missile unMissile = new Missile(this, this.avion.getX(), new ImageView(this));
         listMissile.add(unMissile);
+        unMusicManager.jouerSonMissille();
         return false;
     }
 
@@ -161,6 +164,13 @@ public class Game extends AppCompatActivity implements GestureDetector.OnGesture
 
     private void gameOver(Bloc unBloc) {
         if (unBloc.getImageBloc().getY() > this.hauteurEcran){
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+            SharedPreferences.Editor editor = preferences.edit();
+            String bestScore = preferences.getString("MeilleurScore","");
+            if( bestScore.equalsIgnoreCase("" )|| Integer.parseInt(bestScore) < Game.score ){
+                editor.putString("MeilleurScore", "" + Game.score);
+            }
+            editor.apply();
             Intent intent = new Intent(this, GameOver.class);
             startActivity(intent);
             timerMissile.cancel();
@@ -169,13 +179,11 @@ public class Game extends AppCompatActivity implements GestureDetector.OnGesture
 
     @Override
     protected void onStop(){
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor editor = preferences.edit();
-        String bestScore = preferences.getString("MeilleurScore","");
-        if( bestScore.equalsIgnoreCase("" )|| Integer.parseInt(bestScore) < Game.score ){
-            editor.putString("MeilleurScore", "" + Game.score);
-        }
-        editor.apply();
         super.onStop();
+    }
+
+    @Override
+    public void onBackPressed() {
+        //bloquage du bouton retour
     }
 }

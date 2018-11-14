@@ -53,4 +53,10 @@ public class Menu extends AppCompatActivity {
         Intent intent = new Intent(this, Information.class);
         startActivity(intent);
     }
+
+    @Override
+    public void onBackPressed() {
+        //bloquage du bouton retour
+    }
+
 }

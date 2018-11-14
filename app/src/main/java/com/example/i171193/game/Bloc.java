@@ -37,10 +37,10 @@ public class Bloc {
     }
 
     public void bouger() {
-        if (this.context.score >= 100*this.context.compteurTimeBloc) { //Faire apparaitre les cube plus vite au file du jeux
+        if (this.context.score >= 75*this.context.compteurTimeBloc) { //Faire apparaitre les cube plus vite au file du jeux
             this.context.compteurTimeBloc+=1;
-            if (this.context.timeBloc > 60) {
-                this.context.timeBloc -= 7; //Les bloc décende plus vite pour augmenter la difficulté
+            if (this.context.timeBloc > 55) {
+                this.context.timeBloc -= 10; //Les bloc décende plus vite pour augmenter la difficulté
             }
         }
         imageBloc.setY(this.getImageBloc().getY() + 50);

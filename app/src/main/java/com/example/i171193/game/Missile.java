@@ -1,5 +1,8 @@
 package com.example.i171193.game;
 
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.media.SoundPool;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
@@ -8,6 +11,7 @@ public class Missile {
     private Game context;
     private float X;
     private ImageView imageMissile;
+    private SoundPool mySound = null;
 
     public Missile(Game pContexte, float pX, ImageView pImageMissile) {
         this.context = pContexte;
