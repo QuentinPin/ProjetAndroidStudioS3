@@ -9,7 +9,7 @@
     android:paddingLeft="0dp"
     android:paddingTop="0dp"
     tools:context=".Game"
-    android:background="@color/fond">
+    android:background="@color/colorPrimaryDark">
 
 
     <TextView

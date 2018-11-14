@@ -2,6 +2,7 @@ package com.example.i171193.game;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.preference.PreferenceManager;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -114,6 +115,7 @@ public class Game extends AppCompatActivity implements GestureDetector.OnGesture
         unGestureDetector = new GestureDetectorCompat(this, this);
         score = 0;
         affScore = (TextView) findViewById(R.id.affScore);
+        affScore.setTextColor(Color.WHITE);
         affScore.setText("Score = 0");
     }
 

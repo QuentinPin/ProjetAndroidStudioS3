@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
-            android:text="Cette application à été réaliser par Quentin PINEAU dans le cadre d'un projet Android durant le semestre 3." />
+            android:text="Cette application a été réaliser par Quentin PINEAU dans le cadre d'un projet Android durant le semestre 3." />
 
         <ImageView
             android:id="@+id/imageView"

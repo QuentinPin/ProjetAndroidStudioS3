@@ -17,9 +17,9 @@ public class Missile {
         this.context = pContexte;
         this.X = pX;
         imageMissile = pImageMissile;
-        imageMissile.setBackgroundResource(R.drawable.missile);
+        imageMissile.setBackgroundResource(R.drawable.missile2);
         //Redimentionnement de l'image
-        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(25, 50);
+        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(15, 50);
         imageMissile.setLayoutParams(params);
         imageMissile.setX(pX + 40); //Missile par au centre de l'avion
         imageMissile.setY(context.hauteurEcran - 150); //Missile par devant l'avion
