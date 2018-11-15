@@ -34,14 +34,14 @@
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Les règle du jeu sont très simples. Le but est que les astéroïdes n'atteignent pas le bah de votre écran. Pour cela c'est très simple, il vous suffit de les détruire à l'aide de vos missiles. Comment ? Pour lancer les missiles taper une fois sur l'écran, alors un missile partira de votre fusée. Tirer c'est bien, mais comment viser ? Une fois de plus c'est très simple. Il vous suffit de pencher votre appareille du côté dont vous souhaitez voir votre avion se diriger. Voilà vous savez tous alors maintenant à vous de jouer !!" />
+            android:text="Les règles du jeu sont très simples. Le but est que les astéroïdes n'atteignent pas le bas de votre écran. Pour cela c'est très simple, il vous suffit de les détruire à l'aide de vos missiles. Comment ? Pour lancer les missiles tapez une fois sur l'écran, alors un missile partira de votre fusée. Tirez c'est bien, mais comment viser ? Une fois de plus c'est très simple. Il vous suffit de pencher votre appareil du côté dont vous souhaitez voir votre avion se diriger. Voilà vous savez tous alors maintenant à vous de jouer !!" />
 
         <TextView
             android:id="@+id/textView7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:text="Dernière précision avant que tu ailles te jeter sur le jeu ! La façon dont tu joues va agir sur les points que tu gagneras. Les missile touchant leur cible te rapporte 10 points, dans le cas contraire tu en perds 5. Alors soit précis !" />
+            android:text="Dernière précision avant que tu ailles te jeter sur le jeu ! La façon dont tu joues va agir sur les points que tu gagneras. Les missiles touchant leur cible te rapporte 10 points, dans le cas contraire tu en perds 5. Alors soit précis !" />
 
         <Button
             android:id="@+id/retour"

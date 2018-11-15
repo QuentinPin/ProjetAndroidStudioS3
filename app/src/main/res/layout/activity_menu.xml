@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:background="@color/button"
-            android:text="Rêgle"
+            android:text="Règle"
             android:textColor="@android:color/background_light"
             android:textSize="18sp" />
 
@@ -56,7 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/button"
-            android:text="Information"
+            android:text="Informations"
             android:textColor="@android:color/background_light"
             android:textSize="18sp" />
     </LinearLayout>

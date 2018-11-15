@@ -17,10 +17,10 @@ public class Bloc {
     public void genereBloc(){
         imageBloc.setBackgroundResource(R.drawable.bloc);
         //Redimentionnement de l'image
-        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(150, 50);
+        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams((int)(context.largeurEcran/15 *1.5), (int)((context.largeurEcran/15 *1.5)/3));
         imageBloc.setLayoutParams(params);
-        imageBloc.setX(this.positionAleatoire()); //Missile par au centre de l'avion
-        imageBloc.setY(50); //Missile par devant l'avion
+        imageBloc.setX(this.positionAleatoire());
+        imageBloc.setY((int)((context.largeurEcran/15 *1.5)/3));
         context.fenetrePrincipal.addView(imageBloc); //Ajout du bloc dans la fenetre principale
     }
 

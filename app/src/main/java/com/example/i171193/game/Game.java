@@ -8,6 +8,7 @@ import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
@@ -99,17 +100,18 @@ public class Game extends AppCompatActivity implements GestureDetector.OnGesture
         //Création de l'image avec la bonne ressource
         avion = new ImageView(this);
         avion.setBackgroundResource(R.drawable.avion);
-        //Redimentionnement de l'image
-        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(100, 150);
-        avion.setLayoutParams(params);
         //Rotation de l'avion pour avoir le né vers le haut
         metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
         largeurEcran = metrics.widthPixels;
         hauteurEcran = metrics.heightPixels;
+
+        //Redimentionnement de l'image
+        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams((int)this.largeurEcran/15, (int)(this.largeurEcran/15 *1.5));
+        avion.setLayoutParams(params);
         //Positionement de l'avion
-        avion.setX((largeurEcran / 2) - 75);
-        avion.setY(hauteurEcran - 150);
+        avion.setX((largeurEcran / 2) - (int) ((this.largeurEcran/15 *1.5)/2));
+        avion.setY(hauteurEcran - (int)(this.largeurEcran/15 *1.5));
         //Ajouter l'image a la fentre principale
         fenetrePrincipal.addView(avion);
         unGestureDetector = new GestureDetectorCompat(this, this);
