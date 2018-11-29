@@ -100,7 +100,6 @@ public class Game extends AppCompatActivity implements GestureDetector.OnGesture
         //Création de l'image avec la bonne ressource
         avion = new ImageView(this);
         avion.setBackgroundResource(R.drawable.avion);
-        //Rotation de l'avion pour avoir le né vers le haut
         metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
         largeurEcran = metrics.widthPixels;
